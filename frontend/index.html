@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda de Contatos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- ============================================ -->
+        <!-- CABEÇALHO - Logo, Tema e Ações Principais -->
+        <!-- ============================================ -->
+        <header>
+            <h1>📇 Agenda de Contatos</h1>
+
+            <!-- Toggle de tema claro/escuro -->
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch">
+                    <input type="checkbox" id="themeToggle">
+                    <span class="slider">
+                        <span class="slider-icon" id="themeIcon">🌙</span>
+                    </span>
+                </label>
+            </div>
+
+            <!-- Barra de ações: busca, novo, importar, exportar -->
+            <div class="header-actions">
+                <input type="text" id="searchInput" placeholder="🔍 Buscar contato...">
+                <button id="btnNovo" class="btn-primary">➕ Novo Contato</button>
+                <button id="btnImportar" class="btn-secondary">📥 Importar</button>
+                <button id="btnExportar" class="btn-secondary">📤 Exportar</button>
+            </div>
+        </header>
+
+        <!-- ============================================ -->
+        <!-- NOTIFICAÇÃO DE ANIVERSÁRIOS DO DIA -->
+        <!-- ============================================ -->
+        <div id="aniversariosNotificacao" class="aniversarios-notificacao hidden">
+            <div class="notificacao-header">
+                <h3>🎂 Aniversariantes de Hoje!</h3>
+                <button id="btnFecharNotificacao" class="btn-fechar">✕</button>
+            </div>
+
+            <!-- Lista dinâmica de aniversariantes (populada via JS) -->
+            <div id="listaAniversariantes" class="lista-aniversariantes">
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- CONTEÚDO PRINCIPAL -->
+        <!-- ============================================ -->
+        <main>
+            <!-- Lista de contatos (cards dinâmicos) -->
+            <div id="listaContatos" class="lista-contatos">
+                <p class="mensagem-vazia">Nenhum contato cadastrado ainda.</p>
+            </div>
+
+            <!-- ============================================ -->
+            <!-- FORMULÁRIO DE CONTATO (NOVO/EDITAR) -->
+            <!-- ============================================ -->
+            <div id="formularioContato" class="formulario-contato hidden">
+                <h2 id="tituloForm">Novo Contato</h2>
+
+                <form id="formContato">
+                    <!-- Campo obrigatório: Nome -->
+                    <div class="form-group">
+                        <label>Nome *</label>
+                        <input type="text" id="nome" required>
+                    </div>
+
+                    <!-- Data de nascimento (opcional) -->
+                    <div class="form-group">
+                        <label>Data de Nascimento</label>
+                        <input type="date" id="dataNascimento">
+                    </div>
+
+                    <!-- Telefones (múltiplos, dinâmicos) -->
+                    <div class="form-group">
+                        <label>Telefones</label>
+                        <div id="telefones">
+                            <input type="tel" class="telefone" placeholder="(00) 00000-0000">
+                        </div>
+                        <button type="button" id="btnAddTelefone" class="btn-small">+ Adicionar Telefone</button>
+                    </div>
+
+                    <!-- Emails (múltiplos, dinâmicos) -->
+                    <div class="form-group">
+                        <label>Emails</label>
+                        <div id="emails">
+                            <input type="email" class="email" placeholder="exemplo@email.com">
+                        </div>
+                        <button type="button" id="btnAddEmail" class="btn-small">+ Adicionar Email</button>
+                    </div>
+
+                    <!-- ============================================ -->
+                    <!-- SEÇÃO DE ENDEREÇO -->
+                    <!-- ============================================ -->
+                    <h3>Endereço</h3>
+
+                    <!-- CEP (com auto-preenchimento via ViaCEP) e Estado -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>CEP <small style="color: #999;">(preenche automaticamente)</small></label>
+                            <input type="text" id="cep" placeholder="00000-000" maxlength="9">
+                        </div>
+                        <div class="form-group">
+                            <label>Estado</label>
+                            <input type="text" id="estado" placeholder="SP">
+                        </div>
+                    </div>
+
+                    <!-- Cidade -->
+                    <div class="form-group">
+                        <label>Cidade</label>
+                        <input type="text" id="cidade">
+                    </div>
+
+                    <!-- Bairro -->
+                    <div class="form-group">
+                        <label>Bairro</label>
+                        <input type="text" id="bairro">
+                    </div>
+
+                    <!-- Logradouro e Número -->
+                    <div class="form-row">
+                        <div class="form-group" style="flex: 3;">
+                            <label>Logradouro</label>
+                            <input type="text" id="logradouro">
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label>Número</label>
+                            <input type="text" id="numero">
+                        </div>
+                    </div>
+
+                    <!-- Botões de ação do formulário -->
+                    <div class="form-actions">
+                        <button type="button" id="btnCancelar" class="btn-secondary">Cancelar</button>
+                        <button type="submit" class="btn-primary">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Script principal (Electron renderer process) -->
+    <script src="renderer.js"></script>
+</body>
+
+</html>

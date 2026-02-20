@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ============================================================ -->
+    <!-- PARENT PROJECT - Spring Boot Starter Parent                 -->
+    <!-- Herda configurações padrão do Spring Boot                   -->
+    <!-- ============================================================ -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.0</version>
+        <relativePath/>
+    </parent>
+
+    <!-- ============================================================ -->
+    <!-- IDENTIFICAÇÃO DO PROJETO                                    -->
+    <!-- Coordenadas Maven: groupId:artifactId:version              -->
+    <!-- ============================================================ -->
+    <groupId>com.agendacontatos</groupId>
+    <artifactId>agenda-contatos-backend</artifactId>
+    <version>1.0.0</version>
+    <name>Agenda de Contatos - Backend</name>
+    <description>Backend REST API para gerenciamento de contatos</description>
+
+    <!-- ============================================================ -->
+    <!-- PROPRIEDADES DO PROJETO                                     -->
+    <!-- Versão do Java e encoding de arquivos                      -->
+    <!-- ============================================================ -->
+    <properties>
+        <!-- Versão do Java (requer JDK 17 ou superior) -->
+        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+
+        <!-- Encoding dos arquivos fonte -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!-- ============================================================ -->
+    <!-- DEPENDÊNCIAS DO PROJETO                                     -->
+    <!-- Bibliotecas necessárias para a aplicação funcionar         -->
+    <!-- ============================================================ -->
+    <dependencies>
+        <!-- Spring Boot Starter Web -->
+        <!-- Inclui: Spring MVC, REST API, Tomcat embedded, Jackson -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Google Gson -->
+        <!-- Biblioteca para serialização/deserialização JSON -->
+        <!-- Usada para persistência em arquivo JSON -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+
+        <!-- Lombok -->
+        <!-- Reduz boilerplate code (getters, setters, construtores) -->
+        <!-- Opcional: não incluído no JAR final -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- Spring Boot DevTools -->
+        <!-- Hot reload durante desenvolvimento -->
+        <!-- Escopo runtime: ativo apenas em desenvolvimento -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+    <!-- ============================================================ -->
+    <!-- CONFIGURAÇÃO DE BUILD                                       -->
+    <!-- Plugins para compilação e empacotamento                    -->
+    <!-- ============================================================ -->
+    <build>
+        <plugins>
+            <!-- Spring Boot Maven Plugin -->
+            <!-- Permite criar JAR executável com 'mvn package' -->
+            <!-- Inclui todas as dependências no JAR final -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,53 @@
+{
+  "name": "agenda-de-contatos",
+  "version": "1.0.0",
+  "description": "Aplicação desktop de agenda de contatos",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "keywords": [
+    "agenda",
+    "contatos",
+    "electron"
+  ],
+  "author": "Seu Nome",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.agendacontatos.app",
+    "productName": "agenda-de-contatos",
+    "win": {
+      "target": "nsis",
+      "icon": "icon.png",
+      "artifactName": "${productName}-instalador-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Agenda de Contatos",
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico"
+    },
+    "extraResources": [
+      {
+        "from": "../backend/target/agenda-contatos-backend-1.0.0.jar",
+        "to": "backend-app.jar"
+      }
+    ],
+    "files": [
+      "**/*",
+      "!node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+      "!node_modules/*.d.ts",
+      "!node_modules/.bin"
+    ]
+  }
+}

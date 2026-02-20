@@ -1,0 +1,581 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    position: relative; /* Para posicionar o switch */
+}
+
+header h1 {
+    color: #667eea;
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 15px;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 12px 20px;
+    padding-left: 25px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.lista-contatos {
+    flex: 1;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mensagem-vazia {
+    text-align: center;
+    color: #999;
+    padding: 50px;
+    font-size: 1.2em;
+}
+
+.contato-card {
+    background: #e9ecef;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.contato-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.contato-card h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+.contato-info {
+    color: #666;
+    font-size: 0.95em;
+    margin-bottom: 5px;
+}
+
+.contato-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.formulario-contato {
+    flex: 1;
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    overflow-y: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-contato h2 {
+    color: #667eea;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+.formulario-contato h3 {
+    color: #764ba2;
+    margin: 25px 0 15px 0;
+    font-size: 1.3em;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+#telefones input,
+#emails input {
+    margin-bottom: 10px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: flex-end;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #e0e0e0;
+    color: #333;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+    background: #d0d0d0;
+}
+
+.btn-small {
+    background: #f0f0f0;
+    color: #667eea;
+    border: 2px solid #667eea;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-small:hover {
+    background: #667eea;
+    color: white;
+}
+
+.btn-editar {
+    background: #ffa726;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-editar:hover {
+    background: #fb8c00;
+}
+
+.btn-deletar {
+    background: #ef5350;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-deletar:hover {
+    background: #e53935;
+}
+
+.hidden {
+    display: none !important;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #764ba2;
+}
+
+.theme-switch-wrapper {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: 0.4s;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 5px;
+}
+
+.slider-icon {
+    font-size: 18px;
+    transition: transform 0.4s;
+}
+
+/* ========== SWITCH MODO CLARO/ESCURO ========== */
+
+.theme-switch input:checked + .slider {
+    background: linear-gradient(135deg, #ffa726 0%, #fb8c00 100%);
+}
+
+.theme-switch input:checked + .slider .slider-icon {
+    transform: translateX(30px);
+}
+
+body.dark-mode {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+body.dark-mode .container {
+    color: #e0e0e0;
+}
+
+body.dark-mode header {
+    background: #2a2a3e;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode header h1 {
+    color: #a18aff;
+}
+
+body.dark-mode #searchInput {
+    background: #1a1a2e;
+    color: #e0e0e0;
+    border-color: #444;
+}
+
+body.dark-mode #searchInput::placeholder {
+    color: #888;
+}
+
+body.dark-mode #searchInput:focus {
+    border-color: #a18aff;
+}
+
+body.dark-mode .lista-contatos {
+    background: #2a2a3e;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .mensagem-vazia {
+    color: #666;
+}
+
+body.dark-mode .contato-card {
+    background: #1a1a2e;
+    border-left-color: #a18aff;
+}
+
+body.dark-mode .contato-card:hover {
+    box-shadow: 0 3px 10px rgba(161, 138, 255, 0.3);
+}
+
+body.dark-mode .contato-card h3 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .contato-info {
+    color: #aaa;
+}
+
+body.dark-mode .formulario-contato {
+    background: #2a2a3e;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .formulario-contato h2 {
+    color: #a18aff;
+}
+
+body.dark-mode .formulario-contato h3 {
+    color: #ffa726;
+}
+
+body.dark-mode .form-group label {
+    color: #e0e0e0;
+}
+
+body.dark-mode .form-group input {
+    background: #1a1a2e;
+    color: #e0e0e0;
+    border-color: #444;
+}
+
+body.dark-mode .form-group input:focus {
+    border-color: #a18aff;
+}
+
+body.dark-mode .btn-secondary {
+    background: #3a3a4e;
+    color: #e0e0e0;
+}
+
+body.dark-mode .btn-secondary:hover {
+    background: #4a4a5e;
+}
+
+body.dark-mode .btn-small {
+    background: #3a3a4e;
+    color: #a18aff;
+    border-color: #a18aff;
+}
+
+body.dark-mode .btn-small:hover {
+    background: #a18aff;
+    color: #1a1a2e;
+}
+
+body.dark-mode ::-webkit-scrollbar-track {
+    background: #1a1a2e;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background: #a18aff;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: #8a6adf;
+}
+
+/* ========== NOTIFICAÇÕES DE ANIVERSÁRIO ========== */
+
+.aniversarios-notificacao {
+    background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 20px rgba(255, 107, 157, 0.4);
+    animation: slideDown 0.5s ease-out, pulse 2s infinite;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 5px 20px rgba(255, 107, 157, 0.4);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 8px 30px rgba(255, 107, 157, 0.7);
+        transform: scale(1.02);
+    }
+}
+
+.notificacao-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.notificacao-header h3 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.btn-fechar {
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-fechar:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.lista-aniversariantes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.aniversariante-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+.aniversariante-info {
+    flex: 1;
+}
+
+.aniversariante-nome {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.aniversariante-idade {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+.aniversariante-emoji {
+    font-size: 2em;
+}
+
+/* Tema Escuro */
+body.dark-mode .aniversarios-notificacao {
+    background: linear-gradient(135deg, #d63447 0%, #a83a46 100%);
+    box-shadow: 0 5px 20px rgba(214, 52, 71, 0.4);
+}
+
+body.dark-mode .aniversarios-notificacao {
+    background: linear-gradient(135deg, #d63447 0%, #a83a46 100%);
+    box-shadow: 0 5px 20px rgba(214, 52, 71, 0.4);
+    animation: slideDown 0.5s ease-out, pulseDark 2s infinite;
+}
+
+@keyframes pulseDark {
+    0%, 100% {
+        box-shadow: 0 5px 20px rgba(214, 52, 71, 0.4);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 8px 30px rgba(214, 52, 71, 0.7);
+        transform: scale(1.02);
+    }
+}
+
+/* ========== CAMPO CEP COM FEEDBACK VISUAL ========== */
+
+#cep:disabled {
+    background-color: #f0f0f0;
+    cursor: wait;
+}
+
+#cep:disabled::placeholder {
+    color: #999;
+}
+
+body.dark-mode #cep:disabled {
+    background-color: #2a2a3e;
+}
