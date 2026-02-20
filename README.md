@@ -3,6 +3,22 @@
 
 Aplicação desktop completa para gerenciamento de contatos pessoais, construída com **Electron** no frontend e **Spring Boot** no backend. Os dados são persistidos localmente em arquivo JSON, sem necessidade de banco de dados externo.
 
+<div align="center">
+<img src="https://github.com/user-attachments/assets/db57f49b-5aa8-4b2a-a810-2e0ac1d0cf72">
+</div>
+
+<div align="center">
+<img src="https://github.com/user-attachments/assets/d708803f-4fc6-4565-9ec5-978a44152be6">
+</div>
+
+<div align="center">
+<img src="https://github.com/user-attachments/assets/66dd443b-ad36-41bf-beea-1e19698d5f83">
+</div>
+
+<div align="center">
+<img src="https://github.com/user-attachments/assets/c608e3d9-d1f2-4fc3-b590-a427e5ce097a">
+</div>
+
 ---
 
 ## 🖥️ Demonstração
