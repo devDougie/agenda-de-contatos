@@ -193,14 +193,9 @@ O servidor roda em `http://localhost:8080/api/contatos`.
 
 ## 💾 Persistência de Dados
 
-Os dados são armazenados em arquivo JSON no diretório do usuário:
+Os dados são armazenados em arquivo JSON no diretório do usuário: `~/Documents/AgendaContatos/database/contatos.json`
 
-| Modo | Caminho |
-|---|---|
-| **Produção** | `~/Documents/AgendaContatos/database/contatos.json` |
-| **Desenvolvimento** | `backend/database/contatos.json` |
-
-Os backups exportados pela aplicação são salvos em `~/Documents/AgendaContatos/backups/`.
+Os backups exportados pela aplicação são salvos em: `~/Documents/AgendaContatos/backups/`.
 
 ---
 
