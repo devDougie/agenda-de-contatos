@@ -211,4 +211,4 @@ Os backups exportados pela aplicação são salvos em: `~/Documents/AgendaContat
 
 ---
 
-> 📌 **Sobre este projeto:** desenvolvido para fins de aprendizado e prática. O código é de propriedade do autor.
+> 📌 **Sobre este projeto:** desenvolvido para fins de aprendizado e prática.
